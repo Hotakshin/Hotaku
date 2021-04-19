@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <style></style>
+</head>
+
+<body>
+    <!-- <form action="login.jsp" method="get">
+        id:<input type='text' name='id'>
+        passwd:<input type='password' name='passwd'>
+        <input type='submit' value="Send">
+        <input type='reset' value="Cancel"> -->
+    </form>
+    <!-- <div>Hello</div>
+    <div><a href='https://github.com/Hotakshin/Hotaku'>내 깃허브</a></div> -->
+    <div id="show"></div>
+    <script>
+        // form 생성.
+        var frm = document.createElement('form');
+        frm.setAttribute('action', 'login.jsp');
+        frm.setAttribute('method', 'get');
+
+        // label = > id : , password :
+        var id = document.createTextNode('id:');
+        var passwd = document.createTextNode('passwd:');
+        // input => id, passwd
+        var inputId = document.createElement('input');
+        inputId.setAttribute('type', 'text');
+        inputId.setAttribute('name', 'id');
+        var inputPw = document.createElement('input');
+        inputPw.setAttribute('type', 'password');
+        inputPw.setAttribute('name', 'passwd');
+
+        var sbm = document.createElement('input');
+        sbm.setAttribute('type', 'submit');
+        sbm.setAttribute('value', 'Send');
+        var reset = document.createElement('input');
+        reset.setAttribute('type', 'reset');
+        reset.setAttribute('value', 'Cancel');
+
+        frm.appendChild(id);
+        frm.appendChild(inputId);
+        frm.appendChild(passwd);
+        frm.appendChild(inputPw);
+        frm.appendChild(sbm);
+        frm.appendChild(reset);
+    
+
+        document.body.appendChild(frm);
+    </script>
+    <!-- <script src="dom.js"></script> -->
+</body>
+
+</html>
