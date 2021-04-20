@@ -23,10 +23,11 @@
     <!-- <div>Hello</div>
     <div><a href='https://github.com/Hotakshin/Hotaku'>내 깃허브</a></div> -->
     <div id="show"></div>
-    <button onmouseover="showTable()">마우스 슬쩍</button>
+    <button onmouseover ="showTable()">마우스 슬쩍</button>
     <script>
+
         var buttons = document.getElementsByTagName('button');
-        buttons[0].setAttribute('onclick', 'showTable()');
+        buttons[0].setAttribute('onclick','showTable()');
 
         var p1 = {
             name: '신호탁',
@@ -49,29 +50,29 @@
         function showTable() {
 
             var tableTag = document.createElement('table');
-            tableTag.setAttribute('border', '1'); //스타일
-            for (var p of persons) { // for ~ of 배열의 개수만큼
-                // for (var field in p) {  // for ~ in 필드의 개수만큼
-                // }
-                var tr1 = document.createElement('tr');
-                var td1 = document.createElement('td');
-                td1.innerHTML = p.name;
-                var td2 = document.createElement('td');
-                td2.innerHTML = p.score;
+        tableTag.setAttribute('border','1'); //스타일
+        for (var p of persons) { // for ~ of 배열의 개수만큼
+            // for (var field in p) {  // for ~ in 필드의 개수만큼
+            // }
+            var tr1 = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.innerHTML = p.name;
+            var td2 = document.createElement('td');
+            td2.innerHTML = p.score;
 
-                console.log(`name요소 : ${p.name}`); // 콘솔에 출력
-                console.log(`score요소 : ${p.score}`); // 콘솔에 출력
+            console.log(`name요소 : ${p.name}`); // 콘솔에 출력
+            console.log(`score요소 : ${p.score}`); // 콘솔에 출력
 
-                tableTag.appendChild(tr1);
-                tr1.appendChild(td1);
-                tr1.appendChild(td2);
-            }
-
-            var show = document.getElementById('show');
-            show.appendChild(tableTag); // 출력
-
+            tableTag.appendChild(tr1);
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
         }
 
+        var show = document.getElementById('show');
+        show.appendChild(tableTag); // 출력
+
+        }
+        
 
 
         // for (p of persons) { //배열의 개수만큼 반복

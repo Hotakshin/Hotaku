@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domEx.html</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <table id="tbl" border="1"></table>
+    <script>
+        var p1 = {
+            name: 'hong',
+            id: 'user1',
+            score: 80,
+            gender: '남'
+        }
+        var p2 = {
+            name: 'Hawag',
+            id: 'user2',
+            score: 90,
+            gender: '남'
+        }
+        var p3 = {
+            name: 'Shin',
+            id: 'user3',
+            score: 100,
+            gender: '남'
+        }
+        var p4 = {
+            name: 'Kim',
+            id: 'user4',
+            score: 90,
+            gender: '여'
+        }
+        
+        var persons = [p1, p2, p3, p4];
+
+        var tableTag = document.createElement('table');
+        
+       
+        tableTag.setAttribute('border', '1');
+        for (var p of persons) {
+           
+            var btn = document.createElement('button');
+            btn.textContent = '삭제';
+            var tr1 = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.innerHTML = p.name;
+            var td2 = document.createElement('td');
+            td2.innerHTML = p.id;
+            var td3 = document.createElement('td');
+            td3.innerHTML = p.score;
+            var td4 = document.createElement('td');
+            td4.innerHTML = p.gender;
+            var td5 = document.createElement('td');
+            td5.appendChild(btn);
+            console.log(`name요소 : ${p.name}`); // 콘솔에 출력
+            console.log(`id요소 : ${p.id}`);
+            console.log(`score요소 : ${p.score}`); // 콘솔에 출력
+            console.log(`gender요소 : ${p.gender}`);
+
+            tableTag.appendChild(tr1);
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
+            tr1.appendChild(td3);
+            tr1.appendChild(td4);
+            tr1.appendChild(td5);
+        }
+        var show = document.getElementById('show');
+        show.appendChild(tableTag);
+        
+        var btns = document.querySelectorAll('tr>td>button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                var delVal = this.parentNode.parentNode.childNodes[2].firstChild.nodeValue;
+                console.log(delVal);
+                delFunc(delVal); //데이터베이스 삭제기능.
+                this.parentNode.parentNode.remove();
+            }
+        }
+        console.log(btns);
+
+        function delFunc(val) {
+            // remove(val);
+            console.log(`${val} 삭제됨`);
+        }
+    </script>
+</body>
+
+</html>
