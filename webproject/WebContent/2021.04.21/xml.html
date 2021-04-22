@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xml.html</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log(xhtp.responseXML);
+        });
+    </script>
+</head>
+
+<body>
+    <form action="emList.do" method = "POST">
+        lastname : <input type="text" name="last_name" id="">
+        Email : <input type="text" name="email" id="">
+        HireDate : <input type="text" name="hire_date" id="">
+        JobId : <input type="text" name="job_id" id="">
+        <input type = "submit" value="저장">
+        <input type = "reset" value="취소">
+    </form>
+
+    <div id = 'show'></div>
+    <script>
+        var xhtp = new XMLHttpRequest();
+        xhtp.open('get', '../dataset.xml');
+        xhtp.send();
+        xhtp.onreadystatechange = function () {
+            if (xhtp.readyState == 4 && xhtp.status == 200) {
+                console.log(xhtp.responseXML); // #document
+                var doc = xhtp.responseXML;
+                var records = doc.getElementsByTagName('record');
+                var table = document.createElement('table');
+                var tr = document.createElement('tr');
+                table.setAttribute('border', '1');
+
+                // record 건수만큼 반복.
+                for (var j = 0; j < records.length; j++) {
+                    var tr = document.createElement('tr');
+                    //데이터 한건의 하위 요소들 (id, firstname, lastname, email, gender, ip)
+                    for (var i = 0; i < records[j].children.length; i++) {
+                        var td = document.createElement('td');
+                        var text = document.createTextNode(records[j].children[i].innerHTML);
+                        td.appendchild(text);
+                        tr.appendChile(td);
+                    }
+                    table.appendChild(tr);
+                }
+
+                document.getElementById('show').appendChild(table);
+                for (var i = 0; i < records.length; i++) {
+                    //id, first_name, last_name, email, gender...
+                    console.log(records[i].children[0].innerHTML)
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
