@@ -7,78 +7,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>domEx.html</title>
     <script src="script/domEx.js"></script>
+
     <script>
-        console.log(1);
+        console.log(1); // 실행순서 확인용
+        // ┌>Event 이름
         document.addEventListener('DOMContentLoaded', function () {
-            // 페이지 로딩 시 회원리스트 
-            // 타이틀과 데이터 처리 / table, tr ,td
-            cretaeTitle('이름', '아이디', '점수', '성별', '기능');
+            console.log(2); // 실행순서 확인용
+
+            // 페이지 로딩 시 회원리스트 출력
+            // 타이틀과 데이터 처리 : table, tr, th, td
+            createTitle('이름', 'ID', '점수', '성별', '기능');
             createData();
-
-            // 저장버튼 클릭시
+            
+            // 저장 버튼 클릭시 실행
             var saveBtn = document.getElementById('saveBtn');
-            saveBtn.addEventListener('click', saveBtnFnc); //사용자 생성 Function
+            console.log(saveBtn);
+            saveBtn.addEventListener('click', saveBtnFnc);
 
-            // 수정버튼 클릭시
+            // 수정 버튼 클릭시 실행
             var modifyBtn = document.getElementById('modifyBtn');
-            modifyBtn.addEventListener('click', modifyBtnFnc);
+            modifyBtn.addEventListener('click', modifyBtnFunc);
         });
+
+        //   window.onload = function() {  // window.onload: 코드를 완전히 다 읽은 후에 fuction()을 실행
+        //       console.log(2);
+        //       var saveBtn = document.getElementById('saveBtn');
+        //       console.log(saveBtn);
+        //   }
     </script>
 </head>
 
 <body>
-   <div>
-        <div>이름 : <input type="text" name="name" id="name" value="Kim"></div>
-        <div>아이디 : <input type="text" name="id" id="id" value="user5"></div>
-        <div>점수 : <input type="text" name="score" id="score" value="99"></div>
+    <div>
+        <div>이름 : <input type='text' name='name' id='name'></div>
+        <div>I　D : <input type='text' name='id' id='id'></div>
+        <div>점수 : <input type='text' name='score' id='score'></div>
+        <!--┌> 회원리스트의 gender value와 동일할 것-->
+        <div>성별 : <input type='radio' name='gender' value="Male">남성
+            <input type='radio' name='gender' value="Female">여성</div>
+
         <div>
-            <label>성별 : <input type="radio" name="gender" value="남" checked>남성</label>
-            <label><input type="radio" name="gender" value="여">여성</label>
-        </div>
-        <div>
-            <button id="saveBtn">저장</button>
-            <button id="modifyBtn">수정</button>
+            <button id='saveBtn'>저장</button>
+            <button id='modifyBtn'>수정</button>
         </div>
     </div>
-    <hr size="2px" color="black">
-    <!-- <script>
-        var saveBtn = document.getElementById('saveBtn');
-        console.log(saveBtn);
-    </script> -->
-    <table id="tbl" border="1">
+    <hr>
+
+    <table id="tbl">
         <caption>회원리스트</caption>
     </table>
+
+
     <script>
-        console.log(3);
-        var tbl = document.getElementById('tbl');
-        console.log(tbl);
+        console.log(3); // 실행순서 확인용
         var p1 = {
             name: 'Hong',
             id: 'user1',
             score: 80,
-            gender: '남'
+            gender: 'Male'
         }
         var p2 = {
-            name: 'Hwang',
+            name: 'Choi',
             id: 'user2',
             score: 84,
-            gender: '남'
+            gender: 'Female'
         }
         var p3 = {
-            name: 'Park',
+            name: 'shin',
             id: 'user3',
             score: 86,
-            gender: '여'
+            gender: 'Male'
         }
         var p4 = {
-            name: 'Choi',
+            name: 'Kim',
             id: 'user4',
             score: 82,
-            gender: '여'
+            gender: 'Female'
         }
+
         var persons = [p1, p2, p3, p4];
 
         var tbl = document.getElementById('tbl');
+        tbl.setAttribute('border', '1');
     </script>
 </body>
 
