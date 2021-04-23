@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>basic.html</title>
+<style>
+    #sec1>h1{
+        background-color: aqua;
+    }
+</style>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var sec1 = document.getElementById('sec1');
+            var sec1 = $('#sec1')
+            console.log(sec1.children().eq(0).html());
+
+            $('.sec1>ul').children().eq(1).css('color', 'red');
+            $('li').eq(0).parent().css('background-color','yellow');
+        });
+    </script>
+</head>
+<body>
+    <h1>Aplly</h1>
+    <section id = 'sec1'>
+        <h1>banana</h1>
+        <ul>
+            <li>Yellow</li>
+            <li>Red</li>
+        </ul>
+    </section>    
+    <section class = 'sec1'>
+        <h1>Cherry</h1>
+        <ul>
+            <li>Yellow</li>
+            <li>Red</li>
+        </ul>
+    </section>
+</body>
+</html>
