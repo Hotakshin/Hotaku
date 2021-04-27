@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass,removeClass,toggleClass,hasClass 메서드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#p1").addClass("aqua");
+            $("#p2").removeClass("red");
+            $("#p3").toggleClass("green");
+            $("#p4").toggleClass("green");
+            $("#p6").text($("#p5").hasClass("yellow"));
+        })
+    </script>
+    <style>
+        .aqua { background-color: #0ff;}
+        .red { background-color:#f00;}
+        .green{ background-color:#0f0;}
+        .yellow{background-color: #ff0;}
+    </style>
+</head>
+<body>
+    <p id="p1">addClass</p>
+    <p id="p2" class="red">removeClass</p>
+    <p id="p3">toggleClass</p>
+    <p id="p4" class="green">toggleClass</p>
+    <p id="p5" class="yellow">hasClass</p>
+    <p id="p6"></p>
+    
+</body>
+</html>
