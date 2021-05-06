@@ -45,7 +45,7 @@ body {
 
 .faq {
     width: 87%;
-    margin-top: 8rem;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     padding: 1.5rem;
@@ -54,17 +54,16 @@ body {
 }
 /* Illustration */
 .faq__img {
-    height: 90px;
+    height: 1px;
 }
 .faq__img-illustration {
     position: relative;
-    bottom: 135px;
-    right: 8px;
+    left: -60px;
 }
 
 /* FAQ title */
 .faq__title {
-    text-align: center;
+    text-align: right;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
