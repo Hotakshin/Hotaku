@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq_ajax_3.html</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        tr:nth-of-type(2n){
+            background-color: greenyellow;
+        }
+    </style>
+    <script>
+        $(function(){
+            $.get('../2021.04.21/MOCK_DATA.json', function(data){
+                console.log(data);
+            },'html');
+        })
+    </script>
+</head>
+
+<body>
+    <div id="show"></div>
+</body>
+
+</html>

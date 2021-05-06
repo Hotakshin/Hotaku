@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>jq_ajax_4.html</title>
+   <script src="../js/jquery-3.6.0.min.js"></script>
+   <style>
+      .id {
+         background-color: black;
+         color: white;
+      }
+   </style>
+   <script>
+      $(function () {
+         $.ajax({
+            url: 'memberServlet.do',
+            type: 'get',
+            //data : 'p1=hello&p2=nice',
+            dataType: 'json',
+            success: function (resolve) {
+               console.log(resolve);
+               // 아이디 이름 나이
+               // 1    hong 20
+               // 2    hong2 22
+
+               // 3    hong3 33
+               let $table = $('<table id="tbl" />').attr('border', '1');
+
+
+               //타이틀
+               let title = $('<tr />');
+               let title_id = $('<th class="id" />').html("ID");
+               let title_name = $('<th class="id" />').html("이름");
+               let title_age = $('<th class="id" />').html("나이");
+
+               title.append(title_id, title_name, title_age);
+               $table.append(title);
+
+
+               //데이터
+               for (let i = 0; i < resolve.length; i++) {
+                  let tr = $('<tr />');
+                  let td_id = $('<td />').html(resolve[i].Id);
+                  let td_name = $('<td />').html(resolve[i].name);
+                  let td_age = $('<td />').html(resolve[i].age);
+
+                  tr.append(td_id, td_name, td_age);
+                  $table.append(tr);
+               }
+
+               $('#show').append($table);
+            },
+            error: function (reject) {
+               window.alert(reject.statusText);
+               console.error(`에러코드: ${reject.status}, 에러메세지: ${reject.statusText}`);
+            }
+         });
+      });
+   </script>
+</head>
+
+<body>
+   <form action='memberServlet.do' method='post'>
+      ID: <input type="number" name="m_id" id="m_id" value=1 /><br>
+      이름: <input type="text" name="m_name" id="m_name" value='hong' /><br>
+      나이: <input type="number" name="m_age" id="m_age" value=20 /><br>
+      <input type="submit" value="저장">
+   </form>
+   <div id="show"></div>
+</body>
+
+</html>
