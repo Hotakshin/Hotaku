@@ -99,7 +99,6 @@ public class FileDAO {
 			psmt.setString(4, vo.getFileName());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건 입력되엇습니다.");
-			System.out.println(vo.getFileName());
 			// 신규입력된 전체 정보 가져오기
 			psmt = conn.prepareStatement(selectSql);
 			psmt.setInt(1, key);
@@ -163,6 +162,39 @@ public class FileDAO {
 		}
 
 		return vo;
+	}
+	
+	public boolean updateFile(FileVO vo) {
+		conn = DBCon.getConnect();
+		int modifyCnt = 0;
+		String sql = "update file_board set author=?,title=?,file_name=nvl(?, file_name) where num=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getAuthor());
+			psmt.setString(2, vo.getTitle());
+			psmt.setString(3, vo.getFileName());
+			psmt.setInt(4, vo.getNum());
+			modifyCnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return modifyCnt == 0 ? false : true;
 	}
 	
 }
