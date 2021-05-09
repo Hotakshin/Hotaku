@@ -47,21 +47,36 @@ public class UserServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserVO vo = new UserVO();
+		UserDAO dao = new UserDAO();
+		
 		String user_id = request.getParameter("user_id");
 		String user_name = request.getParameter("user_name");
 		String user_pass = request.getParameter("user_pass");
 		String user_phone = request.getParameter("user_phone");
 		String user_gender = request.getParameter("user_gender");
+		System.out.println(request.getParameter("user_id"));
+
 		
-		UserVO vo = new UserVO();
+		
 		vo.setUser_id(user_id);
 		vo.setUser_name(user_name);
 		vo.setUser_pass(user_pass);
 		vo.setUser_phone(user_phone);
 		vo.setUser_gender(user_gender);
 		
-		UserDAO dao = new UserDAO();
-		dao.getInsertUser(vo);
+		UserVO uvo = dao.getInsertUser(vo);
+		
+		JSONObject obj = new JSONObject();
+		obj.put("user_id", uvo.getUser_id());
+		obj.put("user_name", uvo.getUser_name());
+		obj.put("user_pass", uvo.getUser_pass());
+		obj.put("user_phone", uvo.getUser_phone());
+		obj.put("user_gender", uvo.getUser_gender());
+	
+		
+		response.getWriter().print(obj);
+		
 		
 	}
 
