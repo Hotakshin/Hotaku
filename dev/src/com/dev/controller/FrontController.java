@@ -26,10 +26,16 @@ public class FrontController extends HttpServlet{
 		list = new HashMap<>();
 //		list.put("/요청페이지.do","컨트롤러");
 		list.put("/MemberInsert.do", new MemberInsertController());
+		list.put("/MemberSearch.do", new MemberSearchController());
+		list.put("/MemberUpdate.do", new MemberUpdateController());
+		list.put("/MemberDelete.do", new MemberDeleteController());
+		list.put("/MemberList.do", new MemberListController());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.setCharacterEncoding(charset);
 		
 		String uri = req.getRequestURI();		// /dev/insertMember.do
 		String contextPath = req.getContextPath(); // /dev
