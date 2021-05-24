@@ -29,10 +29,15 @@
          });
       });
    });
-   $('#pwdChecked').click(function(){
-	   if($('#memberPwd').val() == $('#memberPwd2').val()){
-		   $('pwdChecked').val('checked');
+   function pwdCheck() {
+	   if($('#memberPwd').val() == $('#memberPwd2'.val())){
+		   alert('비밀번호 확인 완료! 다음단계로 진행하세요.');
+		   $('#pwdCheck').val('checked');
 		   $('#memberName').focus();
+	   }else {
+		   alert('비밀번호가 틀립니다. 다시한번 확인하세요.');
+		   $('#memberPwd2').val("");
+		   $('#memberPwd2').focus();
 	   }
    }
 
@@ -46,7 +51,7 @@
          alert('아이디 중복체크를 하세요.');
          return false;
       }
-      if(frm.idCheck.value == 'pwdChecked'){
+      if(frm.pwdCheck.value == 'unChecked'){
           alert('비밀번호 확인하세요.');
           return false;
        }
@@ -83,7 +88,7 @@
                   <th width="150">password checked</th>
                   <td width="300"><input type="password" id="memberPwd2"
                      name="memberPwd2">
-                     <button type="button" id="pwdCheck" value="pwdChecked">password check</button></td>
+                     <button type="button" id="pwdCheck" value="pwdChecked" onclick="pwdCheck()">password check</button></td>
                </tr>
                <tr>
                   <th width="150">이름</th>

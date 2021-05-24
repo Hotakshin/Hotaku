@@ -50,7 +50,7 @@ public class UserServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
 		MultipartRequest multi = new MultipartRequest(request, "c:/tmp", 8*1024*1024, "UTF-8", new DefaultFileRenamePolicy());
 		UserVO vo = new UserVO();
 		UserDAO dao = new UserDAO();
@@ -61,20 +61,8 @@ public class UserServlet extends HttpServlet {
 		String user_phone = multi.getParameter("user_phone");
 		String user_gender = multi.getParameter("user_gender");
 		System.out.println(multi.getParameter("user_id"));
-=======
-		UserVO vo = new UserVO();
-		UserDAO dao = new UserDAO();
 		
-		String user_id = request.getParameter("user_id");
-		String user_name = request.getParameter("user_name");
-		String user_pass = request.getParameter("user_pass");
-		String user_phone = request.getParameter("user_phone");
-		String user_gender = request.getParameter("user_gender");
-		System.out.println(request.getParameter("user_id"));
->>>>>>> branch 'master' of https://github.com/Hotakshin/Hotaku.git
-
-		
-		
+	
 		vo.setUser_id(user_id);
 		vo.setUser_name(user_name);
 		vo.setUser_pass(user_pass);

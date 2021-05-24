@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3>È¸¿ø°¡ÀÔ ÆäÀÌÁö</h3>
+<h3>íšŒì›ê°€ìž… íŽ˜ì´ì§€</h3>
 <form action="MemberInsert.do" method="post">
-	¾ÆÀÌµð : <input type="text" name="id"><br>
-	ºñ¹Ð¹øÈ£ : <input type="password" name="passwd"><br>
-	ÀÌ¸§ : <input type="text" name="name"><br>
-	¸ÞÀÏ : <input type="email" name="mail"><br>
-	<input type="submit" value="µî·Ï">
+	ì•„ì´ë”” : <input type="text" name="id"><br>
+	ë¹„ë°€ë²ˆí˜¸ : <input type="password" name="passwd"><br>
+	ì´ë¦„ : <input type="text" name="name"><br>
+	ë©”ì¼ : <input type="email" name="mail"><br>
+	<input type="submit" value="ë“±ë¡">
 	</form>
 </body>
 </html>
